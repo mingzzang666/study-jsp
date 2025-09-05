@@ -1,0 +1,33 @@
+package com.app.ex;
+
+import java.io.IOException;
+import java.net.URLEncoder;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class Ex04 extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/ex04.jsp").forward(req, resp);
+//		System.out.println(req.getRequestDispatcher("/ex04.jsp"));
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			String firstLevelDivision= req.getParameter("firstLevelDivision");
+			String printAddress = "";
+			if(firstLevelDivision.equals("서울")) {
+				printAddress = "강남구";				
+			} else if(printAddress.equals("경기도")) {
+				printAddress = "다산의 고장 남양주시";
+			} else {
+				printAddress = "서울 혹은 경기도만 입력 가능합니다";
+			}
+			
+			resp.sendRedirect(req.getContextPath() + "/ex04-result?firstLevelDivision=" + URLEncoder.encode(firstLevelDivision, "UTF-8") + "&printAddress="+ URLEncoder.encode(printAddress, "UTF-8") );		
+	}
+
+}

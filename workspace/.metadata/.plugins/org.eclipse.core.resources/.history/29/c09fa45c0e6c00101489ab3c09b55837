@@ -1,0 +1,35 @@
+package com.app.ex;
+
+import java.io.IOException;
+import java.net.URLEncoder;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class Ex05 extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/ex05.jsp").forward(req, resp);
+//		System.out.println(req.getRequestDispatcher("/ex05.jsp"));
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			String id= req.getParameter("id");
+			String password = req.getParameter("password");
+			boolean idCheck = false;
+			boolean passwordCheck = false;
+			
+			if (id.equals("test")) {
+				idCheck = true;
+			}
+			
+			if (password.equals("1234")) {
+				passwordCheck = true;
+			}
+
+			resp.sendRedirect(req.getContextPath() + "/ex04-result?firstLevelDivision=" + URLEncoder.encode(firstLevelDivision, "UTF-8") + "&printAddress="+ URLEncoder.encode(printAddress, "UTF-8") );		
+	}
+}

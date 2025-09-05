@@ -1,0 +1,37 @@
+package com.app.ex;
+
+import java.io.IOException;
+import java.net.URLEncoder;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class Ex05Result extends HttpServlet {
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String id= req.getParameter("id");
+		String password = req.getParameter("password");
+		String loginMessage  = "";
+		boolean idCheck = false;
+		boolean passwordCheck = false;
+		
+		if (id.equals("test")) {
+			idCheck = true;
+		}			
+		if (password.equals("1234")) {
+			passwordCheck = true;
+		}
+		
+		if (idCheck && passwordCheck) {
+			loginMessage = id + "님 환영합니다.";
+			resp.sendRedirect(req.getContextPath() + "/ex05-result?loginMessage=" + URLEncoder.encode(loginMessage, "UTF-8"));
+		} else {
+			resp.sendRedirect(req.getContextPath() + "/ex05?error=" + URLEncoder.encode("로그인 실패. 다시 시도하세요.", "UTF-8"));
+		}
+		
+		req.setAttribute("id", id);
+		req.setAttribute("password", password);
+		req.getRequestDispatcher("/ex04-result.jsp").forward(req, resp);
+	}
+}

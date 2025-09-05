@@ -1,0 +1,26 @@
+package com.app.ex;
+
+import java.io.IOException;
+import java.net.URLEncoder;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class Ex04 extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/ex04.jsp").forward(req, resp);
+//		System.out.println(req.getRequestDispatcher("/ex04.jsp"));
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			String fruitName= req.getParameter("fruitName");
+			String fruitPrice = req.getParameter("fruitPrice");
+			String fruitInfo = "과일 이름: " + req.getParameter("fruitName") + ", 과일 가격: " + req.getParameter("fruitPrice") + "원";
+			resp.sendRedirect(req.getContextPath() + "/ex03-result?fruitName=" + URLEncoder.encode(fruitName, "UTF-8") + "&fruitPrice=" + fruitPrice + "&fruitInfo=" + URLEncoder.encode(fruitInfo, "UTF-8"));		
+	}
+
+}

@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <form action="ex04" method="post" name="addressForm">
+   <input type="text" name="" placeholder="특별시,광역시,도">
+   <input type="text" name="fruitPrice" placeholder="시,군,구">
+      <input type="button" value="전송">
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex05</title>
+</head>
+<body>
+   <form action="ex05" method="post" name="loginForm">
+   <input type="text" name="id" placeholder="아이디를 입력하세요">
+   <input type="text" name="password" placeholder="비밀번호를 입력하세요">
+      <input type="button" value="전송">
+<script>
+const addressInput = document.forms["addressForm"]["firstLevelDivision"];
+const button = document.querySelector('input[type="button"]');
+
+   button.addEventListener("click", (e) => {
+      document.forms["addressForm"].submit(); 
+   });
+</script>
+</html>

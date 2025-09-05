@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex03</title>
+</head>
+<body>
+   <form action="ex03" method="post" name="fruitInfoForm">
+   <input type="text" name="fruitName" placeholder="과일 이름">
+   <input type="text" name="fruitPrice" placeholder="과일 가격">
+      <input type="button" value="전송">
+   </form>
+</body>
+<script>
+   const input = document.forms["fruitInfoForm"]["fruitName"];
+   const input = document.forms["fruitInfoForm"]["fruitPrice"];
+   const button = document.querySelector('input[type="button"]); 
+
+   button.addEventListener("click", (e) => {
+      document.forms["fruitInfoForm"].submit(); 
+   });
+</script>
+</html>

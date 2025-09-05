@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="https://mybatis.org/dtd/mybatis-3-config.dtd" uri="https://mybatis.org/dtd/mybatis-3-config.dtd"/>
+</catalog>

@@ -1,0 +1,21 @@
+package com.app.ex;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class Ex03Result extends HttpServlet{
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			String fruitName = req.getParameter("fruitName");
+			String fruitPrice = req.getParameter("fruitPrice");
+			String fruitInfo = "과일 이름: " + req.getParameter("fruitName") + ", 과일 가격: " + req.getParameter("fruitPrice") + "원"; 
+			req.setAttribute("fruitName", fruitName);
+			req.setAttribute("fruitPrice", fruitPrice);
+			req.setAttribute("fruitInfo", fruitInfo);
+			req.getRequestDispatcher("/ex03-result.jsp").forward(req, resp);
+	}
+}

@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex03</title>
+</head>
+<body>
+   <form action="ex03" method="post" name="fruitInfoForm">
+   <input type="text" name="fruitName" placeholder="과일 이름">
+   <input type="text" name="num2" placeholder="두 번째 정수">
+      <p id="name-message"></p>
+      <input type="button" value="전송">
+   </form>
+</body>
+</html>

@@ -1,0 +1,7 @@
+package com.app.ex;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class Ex03 extends HttpServlet{
+
+}

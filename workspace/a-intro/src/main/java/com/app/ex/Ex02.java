@@ -1,0 +1,26 @@
+package com.app.ex;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class Ex02 extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/ex02.jsp").forward(req, resp);
+		System.out.println(req.getRequestDispatcher("/ex02.jsp"));
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			String num1= req.getParameter("num1");
+			String num2 = req.getParameter("num2");
+			int result = Integer.parseInt(num1) + Integer.parseInt(num2);
+			resp.sendRedirect(req.getContextPath() + "/ex02-result?num1=" + num1 + "&num2=" + num2 + "&result=" + result);		
+	}
+
+}

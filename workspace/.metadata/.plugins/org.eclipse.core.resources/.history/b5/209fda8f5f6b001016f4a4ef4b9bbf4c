@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex02</title>
+</head>
+<body>
+   <form action="ex02" method="post" name="addForm">
+      <input type="text" name="number" placeholder="정수 2개를 입력해주세요.">
+      <input type="button" value="전송">
+   </form>
+</body>
+<script>
+   const input = addForm.number;
+	   button.addEventListener("click", (e) => {
+			addForm.submit(); 
+	   });
+</script>
+</html>
